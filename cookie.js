@@ -48,7 +48,7 @@ define([], function() {
          * @return {void}
          */
         erase: function(name) {
-            createCookie(name,"",-1);
+            this.create(name,"",-1);
         }
     };
 
