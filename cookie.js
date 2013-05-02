@@ -26,8 +26,6 @@
                 expires = "; expires="+date.toGMTString();
             }
 
-            console.log(name + "=" + value + expires + opts.domain + opts.path + ';');
-
             document.cookie = name + "=" + value + expires + opts.domain + opts.path + ';';
         },
 
