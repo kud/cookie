@@ -1,7 +1,10 @@
 /**
  * Manage cookies easily.
  */
-define([], function() {
+;(function(root, name, output){
+  if (typeof define == "function" && define.amd) define([], output) 
+  else root[name] = output()
+})(this.window, "Cookie", function() {
 
     var Cookie = {
         /**
