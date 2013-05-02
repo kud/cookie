@@ -8,7 +8,7 @@ define([], function() {
          * Create a cookie
          * @param  {string}                 name  Name of the cookie
          * @param  {string|number|boolean}  value Value of the cookie
-         * @param  {number}                 days  Expires
+         * @param  {array}                  opts  Domain, Path, Expires
          * @return {void}
          */
         create: function(name,value, opts) {
@@ -19,7 +19,7 @@ define([], function() {
             var expires = '; ';
             if (opts.days) {
                 var date = new Date();
-                date.setTime(date.getTime()+(days*24*60*60*1000));
+                date.setTime(date.getTime()+(opts.days*24*60*60*1000));
                 expires = "; expires="+date.toGMTString();
             }
 
