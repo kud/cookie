@@ -1,7 +1,10 @@
 /**
  * Manage cookies easily.
  */
-define([], function() {
+;(function(root, name, output){
+  if (typeof define == "function" && define.amd) define([], output)
+  else root[name] = output()
+})(this.window, "Cookie", function() {
 
     var Cookie = {
         /**
@@ -13,8 +16,8 @@ define([], function() {
          */
         create: function(name,value, opts) {
             if(typeof opts === 'undefined') { var opts = {}; }
-            if(typeof opts.path === 'undefined') { opts.path = 'path=/'; } else { opts.path = 'path=' + opts.path; }
-            if(typeof opts.domain === 'undefined') { opts.domain = ''; } else { opts.domain = 'domain=' + opts.domain + '; '; }
+            if(typeof opts.path === 'undefined') { opts.path = '; path=/'; } else { opts.path = '; path=' + opts.path; }
+            if(typeof opts.domain === 'undefined') { opts.domain = ''; } else { opts.domain = '; domain=' + opts.domain; }
 
             var expires = '; ';
             if (opts.days) {
@@ -22,6 +25,8 @@ define([], function() {
                 date.setTime(date.getTime()+(opts.days*24*60*60*1000));
                 expires = "; expires="+date.toGMTString();
             }
+
+            console.log(name + "=" + value + expires + opts.domain + opts.path + ';');
 
             document.cookie = name + "=" + value + expires + opts.domain + opts.path + ';';
         },
