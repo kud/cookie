@@ -21,18 +21,18 @@
 
       var expires = '; ';
       if(opts.expires || opts.days) {
-        var date = new Date();
-            value = 0;
+        var date = new Date(),
+            expiresValue = 0;
 
         if(opts.days) {
-          value = opts.days*24*60*60*1000;
+          expiresValue = opts.days*24*60*60*1000;
         }
 
         if(opts.expires) {
-          value = opts.expires;
+          expiresValue = opts.expires;
         }
 
-        date.setTime(date.getTime()+(opts.expires));
+        date.setTime(date.getTime()+(expiresValue));
         expires = "; expires="+date.toGMTString();
       }
 
