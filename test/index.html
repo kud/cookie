@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cookie- Test</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+      body {
+        font: 400 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #444;
+        background: #fafafa;
+        text-align: center;
+      }
+      table {
+        border-radius: 0.2em;
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      table caption {
+        text-align: left;
+        font-size: 1.5em;
+        font-weight: 300;
+        color: #999;
+      }
+      table td {
+        border-top: 1px solid #ccc;
+        font-weight: 400;
+        padding: 0.3em 0.4em;
+      }
+      table th {
+        padding: 0.3em 0.4em;
+      }
+      table tr:hover {
+        background: #f3f3f3;
+      }
+      #result-title{
+        display: block;
+        font-size: .6em;
+      }
+
+    </style>
+</head>
+<body>
+    <h1 id="results-title">
+      Cookie - Test Suite
+      <span id="result-title">&nbsp;</span>
+    </h1>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Result</th>
+      </thead>
+      <tbody id="results">
+      </tbody>
+    </table>
+    <script src="../cookie.js"></script>
+    <script>
+      ;(function(win){
+
+        function Test(object){
+          var self = this
+          if(typeof object != "object") return null
+          Test.tests.push(self)
+          self.name = object.name || ""
+          self.description = object.description || ""
+          self.test = object.test
+          return self
+        }
+
+        function N(){}
+        N.prototype = Test.prototype
+        Test.create = createTest
+        function createTest(){
+          return Test.apply(new N, arguments)
+        }
+
+        Test.tests = []
+
+        Test.template = {
+            tr : document.createElement("tr")
+          , td : document.createElement("td")
+        }
+
+        Test.makeTemplate = makeTemplate
+        function makeTemplate(test){
+          var tr = Test.template.tr.cloneNode(false)
+            , name = Test.template.td.cloneNode(false)
+            , description = Test.template.td.cloneNode(false)
+            , result = Test.template.td.cloneNode(false)
+
+          name.appendChild(document.createTextNode(test.name))
+          description.appendChild(document.createTextNode(test.description))
+          result.appendChild(document.createTextNode(test.result))
+
+          tr.appendChild(name)
+          tr.appendChild(description)
+          tr.appendChild(result)
+
+          return tr
+        }
+
+        Test.testAll = testAll
+        function testAll(container, indicator){
+          var currentTest, hasBeenFalse = false
+          while(currentTest = Test.tests.shift()) {
+            currentTest.result = currentTest.test()
+            container.appendChild(makeTemplate(currentTest))
+            if(currentTest.result == false) {
+              hasBeenFalse = true
+              break 
+            }
+          }
+          if(hasBeenFalse) {
+            indicator.innerHTML = "Test failed at \"" + currentTest.name + "\""
+            indicator.style.color = "#c33"
+          } else {
+            indicator.innerHTML = "Test succeeded"
+            indicator.style.color = "#693"
+          }
+        }
+
+        win.onload = function(){
+          Test.create({
+              name : "Cookie"
+            , description : "Verifies that Cookie is a property of window"
+            , test : function(){ return typeof win.Cookie == "object" }
+          })
+          
+          Test.create({
+              name : "Cookie.set/Cookie.get"
+            , description : "Verifies that Cookie.set works"
+            , test : function(){ 
+                Cookie.set("foo", "bar")
+                return Cookie.get("foo") == "bar" 
+              }
+          })
+          
+          Test.create({
+              name : "Cookie.remove"
+            , description : "Verifies that Cookie.remove works"
+            , test : function(){ 
+                Cookie.set("foo", "bar").remove("foo")
+                return Cookie.get("foo") == null 
+              }
+          })
+
+          Test.testAll(document.getElementById("results"), document.getElementById("result-title"))
+        }
+
+      })(this.window)
+    </script>
+</body>
+</html>
