@@ -5,6 +5,7 @@
 		"url": "https://github.com/kud/cookie.git"
 	},
 	"devDependencies" : {
-		"uglify-js" : "*"
+		"uglify-js" : "*", 
+		"express" : "*"
 	}
 }

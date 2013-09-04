@@ -7,6 +7,7 @@
       hasOwn = {}.hasOwnProperty, 
       number = "[object Number]", 
       _date = "[object Date]",
+      _string = "[object String]"
       DAY = 864e5
 
   /**
@@ -18,7 +19,7 @@
    */
   function toOptions(object, erase) {
     var type = klass.call(object)
-    if(typeof object == "number" || type == number || type == _date ) {
+    if(type == number || type == _date || type == _string ) {
       object = { expires : object }
     }
     if(!object) object = {}
@@ -37,7 +38,7 @@
   function options(object, erase){
     var i, string = "", date
     object = toOptions(object, erase)
-    if("expires" in object) {
+    if("expires" in object && klass.call(object.expires) != _string) {
       date = new Date()
       date.setTime(erase ? 0 : +object.expires)
       object.expires = date.toGMTString()
