@@ -41,3 +41,11 @@ Cookie.remove("my-own-cookie", {
 ```shell
 $ bower install kud-cookie (--save-dev)
 ```
+
+## Build and test
+
+In order to download and install dependencies, create a minified version and run the tests : 
+
+```shell
+$ make
+```
