@@ -67,4 +67,4 @@ Cookie.set("gingerbread", "excellent", {
 
 ## The krew!
 
-This project is alive thanks to my bro' @putaindecode. Cheers mate!
+This project is alive thanks to my bro' <a href="https://github.com/putaindecode/"><strong>@putaindecode</strong></a>. Cheers mates!
