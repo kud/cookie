@@ -9,7 +9,7 @@
       DAY = 864e5
 
   /**
-   * A function that returns an options object from the given `object` which can be a number (which would be `days`).
+   * Returns an options object from the given `object` which can be a number (which would be `days`).
    * 
    * @param {Object|Null|Undefined|Number} object
    * @returns {Object}
@@ -23,7 +23,7 @@
   }
 
   /**
-   * A function that returns a string from an options `object`.
+   * Returns a string from an options `object`.
    * 
    * @param {Object|Null|Undefined|Number} object Options to convert to a string
    * @param {Boolean} erase Sets the expire date to the day before (cookie removal)
@@ -48,7 +48,7 @@
   }
 
   /**
-   * A function that returns the value of the cookie matching the given `name` or `null` if doesn't exist
+   * Returns the value of the cookie matching the given `name` or `null` if doesn't exist
    * 
    * @param {String} name Cookie name
    * @return {String|Null} Cookie value or `null`
@@ -60,7 +60,7 @@
   }
 
   /**
-   * A function that set the value of the cookie matching the given `name` or `null` if doesn't exist
+   * Sets the value of the cookie matching the given `name` or `null` if doesn't exist
    * 
    * @param {String} name Cookie name
    * @param {String} value Cookie value
@@ -74,7 +74,7 @@
   }
 
   /**
-   * A function that set the value of the cookie matching the given `name` or `null` if doesn't exist
+   * Removes the cookie matching `name`. 
    * 
    * @param {String} name Cookie name
    * @param {Object|Number|Null} [opts] Options ([path], [domain])
