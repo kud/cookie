@@ -1,4 +1,4 @@
-# Cookie
+![Cookie](https://raw.github.com/kud/cookie/dev/logo.png)
 
 Nom nom nom! The easy way to create, read, and erase (oh noes!) cookies in #JavaScript.
 
@@ -8,8 +8,8 @@ Nom nom nom! The easy way to create, read, and erase (oh noes!) cookies in #Java
 
 ```javascript
 Cookie.set("my-own-cookie", "nom nom nom", {
-  domain: ".wonderland.com", 
-  path: "/foo", 
+  domain: ".wonderland.com",
+  path: "/foo",
   expires: +new Date() + (Cookie.DAY * 4)
 })
 
@@ -31,7 +31,7 @@ Cookie.get("my-own-cookie") // 'nom nom nom'
 // bye-bye!
 Cookie.remove("my-own-cookie")
 Cookie.remove("my-own-cookie", {
-  domain: ".wonderland.com", 
+  domain: ".wonderland.com",
   path: "/foo"
 })
 ```
@@ -44,7 +44,7 @@ $ bower install kud-cookie (--save-dev)
 
 ## Build and test
 
-In order to download and install dependencies, create a minified version and run the tests : 
+In order to download and install dependencies, create a minified version and run the tests :
 
 ```shell
 $ make
