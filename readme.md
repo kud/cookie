@@ -4,26 +4,48 @@ Nom nom nom! The easy way to create, read, and erase (oh noes!) cookies in #Java
 
 ## Usage
 
-### Create
+### Cookie.set
 
-```
-Cookie.create('my-own-cookie', 'nom nom nom', { domain: '.wonderland.com' });
+```javascript
+Cookie.set("my-own-cookie", "nom nom nom", {
+  domain: ".wonderland.com", 
+  path: "/foo", 
+  expires: +new Date() + (Cookie.DAY * 4)
+})
+
+var expires = new Date()
+expires.setTime(expires.getTime() + 8 * Cookie.DAY)
+Cookie.set("my-own-cookie", "nom nom nom", expires)
+Cookie.set("my-own-cookie", "nom nom nom")
 ```
 
-### Read
+### Cookie.get
 
-```
-Cookie.read('my-own-cookie'); // 'nom nom nom'
+```javascript
+Cookie.get("my-own-cookie") // 'nom nom nom'
 ```
 
-### Erase
+### Cookie.remove
 
-```
-Cookie.erase('my-own-cookie'); // bye-bye!
+```javascript
+// bye-bye!
+Cookie.remove("my-own-cookie")
+Cookie.remove("my-own-cookie", {
+  domain: ".wonderland.com", 
+  path: "/foo"
+})
 ```
 
 ## Installation via Bower
 
-```
+```shell
 $ bower install kud-cookie (--save-dev)
+```
+
+## Build and test
+
+In order to download and install dependencies, create a minified version and run the tests : 
+
+```shell
+$ make
 ```
