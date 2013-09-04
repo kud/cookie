@@ -6,6 +6,7 @@
   var klass = {}.toString, 
       hasOwn = {}.hasOwnProperty, 
       number = "[object Number]", 
+      _date = "[object Date]",
       DAY = 864e5
 
   /**
@@ -16,9 +17,12 @@
    * @private
    */
   function toOptions(object, erase) {
-    if(typeof object == "number" || klass.call(object) == number) object = { days : object }
+    var type = klass.call(object)
+    if(typeof object == "number" || type == number || type == _date ) {
+      object = { expires : object }
+    }
     if(!object) object = {}
-    if(erase) object.days = null
+    if(erase) object.expires = null
     return object
   }
 
@@ -33,16 +37,14 @@
   function options(object, erase){
     var i, string = "", date
     object = toOptions(object, erase)
+    if("expires" in object) {
+      date = new Date()
+      date.setTime(erase ? 0 : +object.expires)
+      object.expires = date.toGMTString()
+    }
     for(i in object) {
       if(!hasOwn.call(object, i)) continue
-      string += "; "
-      if(i == "days") {
-        date = new Date()
-        date.setTime(date.getTime() + (erase ? -1 : object[i]) * 864e5)
-        string += "expires=" + date.toGMTString()
-        continue
-      }
-      string += i + "=" + object[i]
+      string += ";" + i + "=" + object[i]
     }
     return string
   }
@@ -93,6 +95,7 @@
    * @name Cookie
    */
   return {
+    DAY : DAY,
     get : get,
     set : set,
     remove : remove

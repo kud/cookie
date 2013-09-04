@@ -10,10 +10,13 @@ Nom nom nom! The easy way to create, read, and erase (oh noes!) cookies in #Java
 Cookie.set("my-own-cookie", "nom nom nom", {
   domain: ".wonderland.com", 
   path: "/foo", 
-  days: 4
+  expires: +new Date() + (Cookie.DAY * 4)
 })
 
-Cookie.set("my-own-cookie", "nom nom nom", 4 /* days */)
+var expires = new Date()
+expires.setTime(expires.getTime() + 8 * Cookie.DAY)
+Cookie.set("my-own-cookie", "nom nom nom", expires)
+Cookie.set("my-own-cookie", "nom nom nom")
 ```
 
 ### Cookie.get
