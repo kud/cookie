@@ -2,7 +2,7 @@
 
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in #JavaScript.
 
-## Installation via Bower
+## Install via Bower
 
 ```shell
 $ bower install kud-cookie (--save-dev)
