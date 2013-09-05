@@ -1,6 +1,6 @@
 ![Cookie](https://raw.github.com/kud/cookie/master/logo.png)
 
-Nom nom nom! The easy way to cook and eat cookies (yummy!) in #JavaScript.
+Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
 ## Install via Bower
 
