@@ -1,11 +1,11 @@
-![Cookie](https://raw.github.com/kud/cookie/master/logo.png)
+![Cookie](https://raw.github.com/putaindecode/cookie/master/logo.png)
 
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
 ## Install via Bower
 
 ```shell
-$ bower install kud-cookie (--save-dev)
+$ bower install putainde-cookie (--save-dev)
 ```
 
 ## Usage
@@ -72,7 +72,3 @@ Cookie.set("gingerbread", "excellent", {
 ## Attribution
 
 <a href="http://thenounproject.com/noun/cookie/#icon-No17125" target="_blank">Cookie</a> designed by <a href="http://thenounproject.com/car.lancaster" target="_blank">Caroline Lancaster</a> from The Noun Project.
-
-## The krew!
-
-Huge help from my bro' <a href="https://github.com/putaindecode/"><strong>@putaindecode</strong></a>. Cheers mates!
