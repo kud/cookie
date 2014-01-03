@@ -1,18 +1,19 @@
 ;(function(root, name, output){
-  if(typeof define == "function" && define.amd) define([], output)
-  else root[name] = output()
-})(this.window, "Cookie", function(){
+  if(typeof define == "function" && define.amd) return define([], output)
+  if(typeof module == "object" && module.exports) return module.exports = output()
+  root[name] = output()
+})(this.window, "cookie", function(){
 
-  var klass = {}.toString, 
-      hasOwn = {}.hasOwnProperty, 
-      number = "[object Number]", 
+  var klass = {}.toString,
+      hasOwn = {}.hasOwnProperty,
+      number = "[object Number]",
       _date = "[object Date]",
-      _string = "[object String]"
+      _string = "[object String]",
       DAY = 864e5
 
   /**
    * Returns an options object from the given `object` which can be a number (which would be `days`).
-   * 
+   *
    * @param {Object|Null|Undefined|Number} object
    * @returns {Object}
    * @private
@@ -29,7 +30,7 @@
 
   /**
    * Returns a string from an options `object`.
-   * 
+   *
    * @param {Object|Null|Undefined|Number} object Options to convert to a string
    * @param {Boolean} erase Sets the expire date to the day before (cookie removal)
    * @returns {String} Cookie parameters string
@@ -52,7 +53,7 @@
 
   /**
    * Returns the value of the cookie matching the given `name` or `null` if doesn't exist
-   * 
+   *
    * @param {String} name Cookie name
    * @return {String|Null} Cookie value or `null`
    * @memberOf Cookie
@@ -64,7 +65,7 @@
 
   /**
    * Sets the value of the cookie matching the given `name` or `null` if doesn't exist
-   * 
+   *
    * @param {String} name Cookie name
    * @param {String} value Cookie value
    * @param {Object|Number|Null} [opts] Options ([path], [domain], [days])
@@ -77,8 +78,8 @@
   }
 
   /**
-   * Removes the cookie matching `name`. 
-   * 
+   * Removes the cookie matching `name`.
+   *
    * @param {String} name Cookie name
    * @param {Object|Number|Null} [opts] Options ([path], [domain])
    * @return Cookie
@@ -91,7 +92,7 @@
 
   /**
    * Cookie object
-   * 
+   *
    * @type Object
    * @name Cookie
    */
