@@ -1,5 +1,7 @@
 ![Cookie](https://raw.github.com/putaindecode/cookie/master/logo.png)
 
+[![browser support](https://ci.testling.com/putaindecode/cookie.png)](https://ci.testling.com/putaindecode/cookie)
+
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
 ## Install via Bower
@@ -10,7 +12,18 @@ $ bower install putainde-cookie (--save-dev)
 
 ## Usage
 
-### Cookie.set
+### cookie
+
+```javascript
+// commonJS
+var Cookie = require("cookie")
+// AMD
+define(["cookie"], function(Cookie){})
+// global
+window.Cookie
+```
+
+### Cookie.set(name, value[, opts])
 
 ```javascript
 Cookie.set("my-own-cookie", "nom nom nom", {
@@ -25,13 +38,13 @@ Cookie.set("my-own-cookie", "nom nom nom", expires);
 Cookie.set("my-own-cookie", "nom nom nom");
 ```
 
-### Cookie.get
+### Cookie.get(name)
 
 ```javascript
 Cookie.get("my-own-cookie"); // 'nom nom nom'
 ```
 
-### Cookie.remove
+### Cookie.remove(name[, opts])
 
 ```javascript
 // bye-bye!
@@ -40,14 +53,6 @@ Cookie.remove("my-own-cookie", {
   domain: ".wonderland.com",
   path: "/foo"
 });
-```
-
-## Build and test
-
-In order to download and install dependencies, create a minified version and run the tests :
-
-```shell
-$ make
 ```
 
 ## Sugar!

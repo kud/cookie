@@ -1,11 +1,20 @@
 {
-	"name" : "Cookie",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/kud/cookie.git"
-	},
-	"devDependencies" : {
-		"uglify-js" : "*", 
-		"express" : "*"
-	}
+  "name": "Cookie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/putaindecode/cookie.git"
+  },
+  "devDependencies": {
+    "tape": "~2.3.2"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": {
+      "ie": [ 6, 7, 8, 9 ],
+      "firefox": [ 10, 11, 12, 13 ],
+      "chrome": [ 14, 15, 16 ],
+      "safari": [ 5.1, 6 ],
+      "opera": [ 10, 11, 12 ]
+    }
+  }
 }
