@@ -8,7 +8,7 @@ tape("Cookie", function(test){
   test.equal(cookie.get("foo"), "bar", "Gets and sets correctly")
   cookie.remove("foo")
   test.equal(cookie.get("foo"), null, "Succesfully removes cookies")
-  cookie.set("baz", "foo", 100)
+  cookie.set("baz", "foo", +new Date() + 100)
   setTimeout(function(){
     test.equal(cookie.get("baz"), null, "Expiration")
     test.end()

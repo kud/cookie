@@ -1,7 +1,5 @@
 ![Cookie](https://raw.github.com/putaindecode/cookie/master/logo.png)
 
-[![browser support](https://ci.testling.com/putaindecode/cookie.png)](https://ci.testling.com/putaindecode/cookie)
-
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
 ## Install via Bower
@@ -10,23 +8,12 @@ Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 $ bower install putainde-cookie (--save-dev)
 ```
 
-## Module
-
-```javascript
-// CommonJS
-var cookie = require("cookie")
-// AMD
-define(["cookie"], function(cookie){})
-// No module
-window.cookie
-```
-
 ## Usage
 
 ### Cookie.set
 
 ```javascript
-cookie.set("my-own-cookie", "nom nom nom", {
+Cookie.set("my-own-cookie", "nom nom nom", {
   domain: ".wonderland.com",
   path: "/foo",
   expires: +new Date() + (Cookie.DAY * 4)
@@ -34,22 +21,22 @@ cookie.set("my-own-cookie", "nom nom nom", {
 
 var expires = new Date();
 expires.setTime(expires.getTime() + 8 * Cookie.DAY);
-cookie.set("my-own-cookie", "nom nom nom", expires);
-cookie.set("my-own-cookie", "nom nom nom");
+Cookie.set("my-own-cookie", "nom nom nom", expires);
+Cookie.set("my-own-cookie", "nom nom nom");
 ```
 
 ### Cookie.get
 
 ```javascript
-cookie.get("my-own-cookie"); // 'nom nom nom'
+Cookie.get("my-own-cookie"); // 'nom nom nom'
 ```
 
 ### Cookie.remove
 
 ```javascript
 // bye-bye!
-cookie.remove("my-own-cookie");
-cookie.remove("my-own-cookie", {
+Cookie.remove("my-own-cookie");
+Cookie.remove("my-own-cookie", {
   domain: ".wonderland.com",
   path: "/foo"
 });
@@ -77,7 +64,7 @@ Now, you can use something like this:
 
 ```javascript
 // Cookie should be eaten before the end of the day
-cookie.set("gingerbread", "excellent", {
+Cookie.set("gingerbread", "excellent", {
   expires: moment().endOf('day')
 });
 ```
