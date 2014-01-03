@@ -1,5 +1,8 @@
 # Cookie
 
+[![browser support](https://ci.testling.com/putaindecode/cookie.png)](https://ci.testling.com/putaindecode/cookie)
+
+
 Nom nom nom! The easy way to create, read, and erase (oh noes!) cookies in #JavaScript.
 
 ## Usage
