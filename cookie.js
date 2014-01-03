@@ -1,5 +1,6 @@
 ;(function(root, name, output){
-  if(typeof define == "function" && define.amd) define([], output)
+  if(typeof define == "function" && define.amd) return define([], output)
+  if(typeof module == "object" && module.exports) module.exports = output()
   else root[name] = output()
 })(this.window, "cookie", function(){
 
@@ -7,7 +8,7 @@
       hasOwn = {}.hasOwnProperty,
       number = "[object Number]",
       _date = "[object Date]",
-      _string = "[object String]"
+      _string = "[object String]",
       DAY = 864e5
 
   /**
