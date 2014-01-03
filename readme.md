@@ -1,4 +1,4 @@
-![Cookie](https://raw.github.com/putaindecode/cookie/master/logo.png)
+![Cookie](https://raw.github.com/putaindecode/cookie/master/logo/logo.png)
 
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
