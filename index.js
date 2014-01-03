@@ -1,7 +1,7 @@
 ;(function(root, name, output){
   if(typeof define == "function" && define.amd) return define([], output)
-  if(typeof module == "object" && module.exports) module.exports = output()
-  else root[name] = output()
+  if(typeof module == "object" && module.exports) return module.exports = output()
+  root[name] = output()
 })(this.window, "cookie", function(){
 
   var klass = {}.toString,
