@@ -2,7 +2,7 @@
   if(typeof define == "function" && define.amd) return define([], output)
   if(typeof module == "object" && module.exports) module.exports = output()
   else root[name] = output()
-})(this.window, "cookie", function(){
+})(this.window, "Cookie", function(){
 
   var klass = {}.toString,
       hasOwn = {}.hasOwnProperty,
