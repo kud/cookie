@@ -74,7 +74,6 @@
    */
   function set(name, value, opts){
     document.cookie = name + "=" + value + options(opts)
-    return this
   }
 
   /**
@@ -82,12 +81,10 @@
    *
    * @param {String} name Cookie name
    * @param {Object|Number|Null} [opts] Options ([path], [domain])
-   * @return Cookie
    * @memberOf Cookie
   */
   function remove(name, opts){
     document.cookie = name + "=" + options(opts, true)
-    return this
   }
 
   /**
