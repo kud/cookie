@@ -1,6 +1,7 @@
 {
   "name": "putainde-cookie",
-  "version" : "0.2.0",
+  "version" : "1.0.0",
+  "description" : "manipulate cookies the easy way",
   "repository": {
     "type": "git",
     "url": "https://github.com/putaindecode/cookie.git"
