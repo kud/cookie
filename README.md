@@ -4,10 +4,10 @@
 
 Nom nom nom! The easy way to cook and eat cookies (yummy!) in ```#JavaScript```.
 
-## Install via Bower
+## Install via npm
 
 ```shell
-$ bower install putainde-cookie (--save-dev)
+$ npm install putainde-cookie (--save-dev)
 ```
 
 ## Usage
@@ -15,18 +15,13 @@ $ bower install putainde-cookie (--save-dev)
 ### cookie
 
 ```javascript
-// commonJS
-var Cookie = require("cookie")
-// AMD
-define(["cookie"], function(Cookie){})
-// global
-window.Cookie
+var cookie = require("cookie")
 ```
 
 ### Cookie.set(name, value[, opts])
 
 ```javascript
-Cookie.set("my-own-cookie", "nom nom nom", {
+cookie.set("my-own-cookie", "nom nom nom", {
   domain: ".wonderland.com",
   path: "/foo",
   expires: +new Date() + (Cookie.DAY * 4)
@@ -34,14 +29,14 @@ Cookie.set("my-own-cookie", "nom nom nom", {
 
 var expires = new Date();
 expires.setTime(expires.getTime() + 8 * Cookie.DAY);
-Cookie.set("my-own-cookie", "nom nom nom", expires);
-Cookie.set("my-own-cookie", "nom nom nom");
+cookie.set("my-own-cookie", "nom nom nom", expires);
+cookie.set("my-own-cookie", "nom nom nom");
 ```
 
 ### Cookie.get(name)
 
 ```javascript
-Cookie.get("my-own-cookie"); // 'nom nom nom'
+cookie.get("my-own-cookie"); // 'nom nom nom'
 ```
 
 ### Cookie.remove(name[, opts])
