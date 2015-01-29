@@ -15,7 +15,7 @@ $ npm install putainde-cookie (--save-dev)
 ### cookie
 
 ```javascript
-var cookie = require("cookie")
+var cookie = require("putainde-cookie")
 ```
 
 ### Cookie.set(name, value[, opts])
