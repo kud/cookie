@@ -18,33 +18,33 @@ $ npm install putainde-cookie (--save-dev)
 var cookie = require("putainde-cookie")
 ```
 
-### Cookie.set(name, value[, opts])
+### cookie.set(name, value[, opts])
 
 ```javascript
 cookie.set("my-own-cookie", "nom nom nom", {
   domain: ".wonderland.com",
   path: "/foo",
-  expires: +new Date() + (Cookie.DAY * 4)
+  expires: +new Date() + (cookie.DAY * 4)
 });
 
 var expires = new Date();
-expires.setTime(expires.getTime() + 8 * Cookie.DAY);
+expires.setTime(expires.getTime() + 8 * cookie.DAY);
 cookie.set("my-own-cookie", "nom nom nom", expires);
 cookie.set("my-own-cookie", "nom nom nom");
 ```
 
-### Cookie.get(name)
+### cookie.get(name)
 
 ```javascript
 cookie.get("my-own-cookie"); // 'nom nom nom'
 ```
 
-### Cookie.remove(name[, opts])
+### cookie.remove(name[, opts])
 
 ```javascript
 // bye-bye!
-Cookie.remove("my-own-cookie");
-Cookie.remove("my-own-cookie", {
+cookie.remove("my-own-cookie");
+cookie.remove("my-own-cookie", {
   domain: ".wonderland.com",
   path: "/foo"
 });
@@ -64,7 +64,7 @@ Now, you can use something like this:
 
 ```javascript
 // Cookie should be eaten before the end of the day
-Cookie.set("gingerbread", "excellent", {
+cookie.set("gingerbread", "excellent", {
   expires: moment().endOf('day')
 });
 ```
